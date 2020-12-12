@@ -12,16 +12,16 @@ from django.urls import reverse_lazy
 # The master class-based base view. All other class-based views inherit from this base class.
 
 
-class TodoViews(View):
-    model = Todo
-    def get(self,request,*args,**kwargs):
-        pass
-    def post(self,request,*args,**kwargs):
-        pass
-    def put(self,request,*args,**kwargs):
-        pass
-    def delete(self,request,*args,**kwargs):
-        pass
+# class TodoViews(View):
+#     model = Todo
+#     def get(self,request,*args,**kwargs):
+#         pass
+#     def post(self,request,*args,**kwargs):
+#         pass
+#     def put(self,request,*args,**kwargs):
+#         pass
+#     def delete(self,request,*args,**kwargs):
+#         pass
 
 
 # defined the list view 
