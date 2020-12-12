@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">insert todo</div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit" value="add">
+        </form>
+    </div>
+</div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>item</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for todo in todos%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{todo.item}}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{todo.get_absolute_url}}" style="color:#e4148dbe"><i class="fa fa-eye"></i></a>
+                       <a class="btn btn-success" href="{{todo.get_update_url}}"><i class="fa fa-pencil"></i></a>
+                       <a class="btn btn-danger" href="{{todo.get_delete_url}}"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
